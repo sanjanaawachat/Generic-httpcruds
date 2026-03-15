@@ -19,13 +19,38 @@
 
         .spinner {
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
-            top: 0;
-            left: 0;
-            color: blue;
+            z-index: 999;
+        }
 
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #fff;
+            border-top: 6px solid #0d6efd;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        .d-none {
+            display: none;
         }
     </style>
 </head>
@@ -103,7 +128,11 @@
             </div> -->
         </div>
     </div>
-    <div class="spinner" id="spinner"></div>
+    <div class="spinner d-none" id="spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
 
     <script src="./assets/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
